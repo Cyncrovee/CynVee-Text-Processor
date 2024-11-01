@@ -1,0 +1,57 @@
+﻿<Window x:Class="CynVee_Text_Processor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CynVee_Text_Processor"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        
+                <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <DockPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="File">
+                    <MenuItem x:Name="OpenFileButton" Header="Open File" Click="OpenFileButton_OnClick"/>
+                    <MenuItem Header="Open Folder"/>
+                    <Separator/>
+                    <MenuItem x:Name="SaveButton" Header="Save" Click="SaveButton_OnClick"/>
+                    <MenuItem x:Name="SaveAsButton" Header="Save As..." Click="SaveAsButton_OnClick"/>
+                    <Separator/>
+                    <MenuItem x:Name="ExitButton" Header="Exit" Click="ExitButton_OnClick"/>
+                </MenuItem>
+                <MenuItem Header="Edit">
+                    <MenuItem Header="Temp"/>
+                </MenuItem>
+                <MenuItem Header="View">
+                    <MenuItem Header="TEMP"/>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+        
+        <ToggleButton x:Name="ItalicsButton" Content="I" Width="30" HorizontalAlignment="Left" Margin="5,5, 0,5" Grid.Column="0" Grid.Row="1"/>
+        <ToggleButton x:Name="BoldButton" Content="B" Width="30" HorizontalAlignment="Left" Margin="40,5, 0,5" Grid.Column="0" Grid.Row="1"/>
+        <ToggleButton x:Name="UnderlineButton" Content="U" Width="30" HorizontalAlignment="Left" Margin="75,5, 0,5" Grid.Column="0" Grid.Row="1"/>
+        <TextBlock Text="Current File: " Margin="5,0,0,0" Grid.Column="0" Grid.Row="2"/>
+        
+        <RichTextBox x:Name="Editor" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="3">
+            <RichTextBox.Resources>
+                <Style TargetType="{x:Type Paragraph}">
+                    <Setter Property="Margin" Value="0"/>
+                </Style>
+            </RichTextBox.Resources>
+        </RichTextBox>
+        <ListBox x:Name="FileList" Width="300" Grid.Column="1" Grid.Row="3"/>
+        
+    </Grid>
+</Window>
