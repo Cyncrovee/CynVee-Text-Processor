@@ -7,8 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
-                <Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
@@ -31,7 +30,8 @@
                     <MenuItem x:Name="ExitButton" Header="Exit" Click="ExitButton_OnClick"/>
                 </MenuItem>
                 <MenuItem Header="Edit">
-                    <MenuItem Header="Temp"/>
+                    <MenuItem x:Name="UndoButton" Header="Undo" Click="UndoButton_OnClick"/>
+                    <MenuItem x:Name="RedoButton" Header="Redo" Click="RedoButton_OnClick"/>
                 </MenuItem>
                 <MenuItem Header="View">
                     <MenuItem Header="TEMP"/>
@@ -52,6 +52,5 @@
             </RichTextBox.Resources>
         </RichTextBox>
         <ListBox x:Name="FileList" MouseDoubleClick="FileList_OnMouseDoubleClick" Width="Auto" MinWidth="300" Grid.Column="1" Grid.Row="3"/>
-        
     </Grid>
 </Window>
