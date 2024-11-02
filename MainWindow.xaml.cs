@@ -36,6 +36,10 @@ public partial class MainWindow : Window
                 Console.WriteLine("File not found");
             }
         }
+        else
+        {
+            Console.WriteLine("No file selected");
+        }
     }
     private void OpenFolderButton_OnClick(object sender, RoutedEventArgs e)
     {
@@ -47,14 +51,22 @@ public partial class MainWindow : Window
                 _folderPath = openFolderDialog.FolderName;
                 LoadFolder();
             }
+            else
+            {
+                Console.WriteLine("Folder not found");
+            }
+        }
+        else
+        {
+            Console.WriteLine("No folder selected");
         }
     }
     private void SaveButton_OnClick(object sender, RoutedEventArgs e)
     {
         if (_filePath != string.Empty)
         {
-            FileStream fileStream = new FileStream(_filePath, FileMode.Create);
-            TextRange range = new TextRange(Editor.Document.ContentStart, Editor.Document.ContentEnd);
+            var fileStream = new FileStream(_filePath, FileMode.Create);
+            var range = new TextRange(Editor.Document.ContentStart, Editor.Document.ContentEnd);
             range.Save(fileStream, DataFormats.Rtf);
             fileStream.Close();
             LoadFolder();
@@ -77,10 +89,23 @@ public partial class MainWindow : Window
             fileStream.Close();
             LoadFolder();
         }
+        else
+        {
+            Console.WriteLine("No file saved");
+        }
     }
     private void ExitButton_OnClick(object sender, RoutedEventArgs e)
     {
         this.Close();
+    }
+    // "Edit"
+    private void UndoButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        Editor.Undo();
+    }
+    private void RedoButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        Editor.Redo();
     }
 
     
