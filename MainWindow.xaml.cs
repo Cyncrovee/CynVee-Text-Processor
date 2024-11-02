@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Windows;
 using System.Windows.Documents;
+using System.Windows.Input;
 using Microsoft.Win32;
 
 namespace CynVee_Text_Processor;
@@ -16,6 +17,7 @@ public partial class MainWindow : Window
     }
     
     private string _filePath = string.Empty;
+    private string _folderPath = string.Empty;
 
     // Functions for menu
     // "File"
@@ -26,11 +28,24 @@ public partial class MainWindow : Window
         {
             if (File.Exists(openFileDialog.FileName))
             {
-                var fileStream = new FileStream(openFileDialog.FileName, FileMode.Open);
-                var range = new TextRange(Editor.Document.ContentStart, Editor.Document.ContentEnd);
-                range.Load(fileStream, DataFormats.Rtf);
                 _filePath = openFileDialog.FileName;
-                fileStream.Close();
+                LoadFile();
+            }
+            else
+            {
+                Console.WriteLine("File not found");
+            }
+        }
+    }
+    private void OpenFolderButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        var openFolderDialog = new OpenFolderDialog();
+        if (openFolderDialog.ShowDialog() == true)
+        {
+            if (Directory.Exists(openFolderDialog.FolderName))
+            {
+                _folderPath = openFolderDialog.FolderName;
+                LoadFolder();
             }
         }
     }
@@ -42,6 +57,7 @@ public partial class MainWindow : Window
             TextRange range = new TextRange(Editor.Document.ContentStart, Editor.Document.ContentEnd);
             range.Save(fileStream, DataFormats.Rtf);
             fileStream.Close();
+            LoadFolder();
         }
         else
         {
@@ -59,10 +75,92 @@ public partial class MainWindow : Window
             range.Save(fileStream, DataFormats.Rtf);
             _filePath = saveFileDialog.FileName;
             fileStream.Close();
+            LoadFolder();
         }
     }
     private void ExitButton_OnClick(object sender, RoutedEventArgs e)
     {
         this.Close();
+    }
+
+    
+    // Functions for Editor and FileList
+    private void FileList_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+    {
+        if (File.Exists(_filePath) | FileList.SelectedItem != null)
+        {
+            _filePath = FileList.SelectedItem.ToString(); 
+            LoadFile();
+        }
+        else
+        {
+            Console.WriteLine("File not found");
+        }
+    }
+    
+    
+    // Left side button functions
+    private void ItalicsButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        if (Editor.FontStyle == FontStyles.Normal)
+        {
+            Editor.FontStyle = FontStyles.Italic;
+        }
+        else
+        {
+            Editor.FontStyle = FontStyles.Normal;
+        }
+    }
+    private void BoldButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        if (Editor.FontWeight == FontWeights.Normal)
+        {
+            Editor.FontWeight = FontWeights.Bold;
+        }
+        else
+        {
+            Editor.FontWeight = FontWeights.Normal;
+        }
+    }
+    private void UnderlineButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        Console.WriteLine("Underline Button");
+    }
+    
+    // Non-Event functions
+    private void LoadFile()
+    {
+        if (_filePath != string.Empty)
+        {
+            Editor.Document.Blocks.Clear();
+            var fileStream = new FileStream(_filePath, FileMode.Open);
+            var range = new TextRange(Editor.Document.ContentStart, Editor.Document.ContentEnd);
+            if (_filePath.EndsWith(".rtf"))
+            {
+                range.Load(fileStream, DataFormats.Rtf);
+            }
+            else if (_filePath.EndsWith(".txt"))
+            {
+                range.Load(fileStream, DataFormats.Text);
+            }
+            else
+            {
+                range.Load(fileStream, DataFormats.Text);
+            }
+            fileStream.Close();
+        }
+        else
+        {
+            Console.WriteLine("File not found");
+        }
+    }
+    private void LoadFolder()
+    {
+        string[] files = Directory.GetFiles(_folderPath);
+        FileList.Items.Clear();
+        foreach (string file in files)
+        {
+            FileList.Items.Add(file);
+        }
     }
 }
