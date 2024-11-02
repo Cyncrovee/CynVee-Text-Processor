@@ -46,13 +46,13 @@
             </Menu>
         </DockPanel>
         
-        <Button x:Name="ItalicsButton" Content="I" Click="ItalicsButton_OnClick" Width="30" HorizontalAlignment="Left" Margin="5,5, 0,5" Grid.Column="0" Grid.Row="1"/>
-        <Button x:Name="BoldButton" Click="BoldButton_OnClick" Content="B" Width="30" HorizontalAlignment="Left" Margin="40,5, 0,5" Grid.Column="0" Grid.Row="1"/>
-        <Button x:Name="UnderlineButton" Click="UnderlineButton_OnClick" Content="U" Width="30" HorizontalAlignment="Left" Margin="75,5, 0,5" Grid.Column="0" Grid.Row="1"/>
+        <Button x:Name="ItalicsButton" Content="I" ToolTip="Toggle Italics on Selected Text" Click="ItalicsButton_OnClick" Width="30" HorizontalAlignment="Left" Margin="5,5, 0,5" Grid.Column="0" Grid.Row="1"/>
+        <Button x:Name="BoldButton" ToolTip="Toggle Bold on Selected Text" Click="BoldButton_OnClick" Content="B" Width="30" HorizontalAlignment="Left" Margin="40,5, 0,5" Grid.Column="0" Grid.Row="1"/>
+        <Button x:Name="UnderlineButton" ToolTip="Toggle Underline on Selected Text" Click="UnderlineButton_OnClick" Content="U" Width="30" HorizontalAlignment="Left" Margin="75,5, 0,5" Grid.Column="0" Grid.Row="1"/>
         
-        <Button x:Name="AlignLeftButton" Content="AL" Click="AlignLeftButton_OnClick" Width="30" HorizontalAlignment="Right" Margin="0,0,66,0" Grid.Column="0" Grid.Row="1"/>
-        <Button x:Name="AlignCenterButton" Content="AC" Click="AlignCenterButton_OnClick" Width="30" HorizontalAlignment="Right" Margin="0,0,33,0" Grid.Column="0" Grid.Row="1"/>
-        <Button x:Name="AlignRightButton" Content="AR" Click="AlignRightButton_OnClick" Width="30" HorizontalAlignment="Right" Margin="0,0,0,0" Grid.Column="0" Grid.Row="1"/>
+        <Button x:Name="AlignLeftButton" Content="AL" ToolTip="Toggle Aligning Selected Text Left" Click="AlignLeftButton_OnClick" Width="30" HorizontalAlignment="Right" Margin="0,0,66,0" Grid.Column="0" Grid.Row="1"/>
+        <Button x:Name="AlignCenterButton" Content="AC" ToolTip="Toggle Aligning Selected Text to Center" Click="AlignCenterButton_OnClick" Width="30" HorizontalAlignment="Right" Margin="0,0,33,0" Grid.Column="0" Grid.Row="1"/>
+        <Button x:Name="AlignRightButton" Content="AR" ToolTip="Toggle Aligning Selected Text Right" Click="AlignRightButton_OnClick" Width="30" HorizontalAlignment="Right" Margin="0,0,0,0" Grid.Column="0" Grid.Row="1"/>
         
         <TextBlock x:Name="CurrentFileTextBlock" Text="Current File: " Margin="5,0,0,0" Grid.Column="0" Grid.Row="2"/>
         <TextBlock x:Name="CurrentFolderTextBlock" Text="Current Folder: " Margin="5,15,0,0" Grid.Column="0" Grid.Row="2"/>
