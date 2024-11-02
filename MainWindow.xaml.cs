@@ -147,29 +147,15 @@ public partial class MainWindow : Window
     // Left side button functions
     private void ItalicsButton_OnClick(object sender, RoutedEventArgs e)
     {
-        if (Editor.FontStyle == FontStyles.Normal)
-        {
-            Editor.FontStyle = FontStyles.Italic;
-        }
-        else
-        {
-            Editor.FontStyle = FontStyles.Normal;
-        }
+        EditingCommands.ToggleItalic.Execute(null, Editor);
     }
     private void BoldButton_OnClick(object sender, RoutedEventArgs e)
     {
-        if (Editor.FontWeight == FontWeights.Normal)
-        {
-            Editor.FontWeight = FontWeights.Bold;
-        }
-        else
-        {
-            Editor.FontWeight = FontWeights.Normal;
-        }
+        EditingCommands.ToggleBold.Execute(null, Editor);
     }
     private void UnderlineButton_OnClick(object sender, RoutedEventArgs e)
     {
-        Console.WriteLine("Underline Button");
+        EditingCommands.ToggleUnderline.Execute(null, Editor);
     }
     
     
