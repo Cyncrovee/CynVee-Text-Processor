@@ -193,6 +193,7 @@ public partial class MainWindow : Window
                 range.Load(fileStream, DataFormats.Text);
             }
             fileStream.Close();
+            CurrentFileTextBlock.Text = "Current File: " + _filePath;
         }
         else
         {
@@ -201,11 +202,19 @@ public partial class MainWindow : Window
     }
     private void LoadFolder()
     {
-        string[] files = Directory.GetFiles(_folderPath);
-        FileList.Items.Clear();
-        foreach (string file in files)
+        if (_folderPath != string.Empty)
         {
-            FileList.Items.Add(file);
+            string[] files = Directory.GetFiles(_folderPath);
+            FileList.Items.Clear();
+            foreach (string file in files)
+            {
+                FileList.Items.Add(file);
+            }
+            CurrentFolderTextBlock.Text = "Current Folder: " + _folderPath;
+        }
+        else
+        {
+            Console.WriteLine("Folder not found");
         }
     }
 }
