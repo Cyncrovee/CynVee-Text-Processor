@@ -107,6 +107,18 @@ public partial class MainWindow : Window
     {
         Editor.Redo();
     }
+    private void CutButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        Editor.Cut();
+    }
+    private void CopyButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        Editor.Copy();
+    }
+    private void PasteButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        Editor.Paste();
+    }
 
     
     // Functions for Editor and FileList
@@ -114,7 +126,7 @@ public partial class MainWindow : Window
     {
         if (File.Exists(_filePath) | FileList.SelectedItem != null)
         {
-            _filePath = FileList.SelectedItem.ToString(); 
+            _filePath = FileList.SelectedItem.ToString();
             LoadFile();
         }
         else
