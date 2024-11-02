@@ -36,6 +36,9 @@
                     <MenuItem x:Name="CutButton" Header="Cut" Click="CutButton_OnClick"/>
                     <MenuItem x:Name="CopyButton" Header="Copy" Click="CopyButton_OnClick"/>
                     <MenuItem x:Name="PasteButton" Header="Paste" Click="PasteButton_OnClick"/>
+                    <Separator/>
+                    <MenuItem x:Name="SelectAllButton" Header="Select All" Click="SelectAllButton_OnClick"/>
+                    <MenuItem x:Name="ClearAllButton" Header="Clear All" Click="ClearAllButton_OnClick"/>
                 </MenuItem>
                 <MenuItem Header="View">
                     <MenuItem Header="TEMP"/>

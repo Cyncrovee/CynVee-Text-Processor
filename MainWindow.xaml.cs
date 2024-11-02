@@ -119,6 +119,14 @@ public partial class MainWindow : Window
     {
         Editor.Paste();
     }
+    private void SelectAllButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        Editor.SelectAll();
+    }
+    private void ClearAllButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        Editor.Document.Blocks.Clear();
+    }
 
     
     // Functions for Editor and FileList
