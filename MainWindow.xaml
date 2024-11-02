@@ -30,8 +30,12 @@
                     <MenuItem x:Name="ExitButton" Header="Exit" Click="ExitButton_OnClick"/>
                 </MenuItem>
                 <MenuItem Header="Edit">
-                    <MenuItem x:Name="UndoButton" Header="Undo" Click="UndoButton_OnClick"/>
-                    <MenuItem x:Name="RedoButton" Header="Redo" Click="RedoButton_OnClick"/>
+                    <MenuItem x:Name="UndoButton" Header="Undo" Click="UndoButton_OnClick" InputGestureText="Ctrl+Z"/>
+                    <MenuItem x:Name="RedoButton" Header="Redo" Click="RedoButton_OnClick" InputGestureText="Ctrl+Z"/>
+                    <Separator/>
+                    <MenuItem x:Name="CutButton" Header="Cut" Click="CutButton_OnClick"/>
+                    <MenuItem x:Name="CopyButton" Header="Copy" Click="CopyButton_OnClick"/>
+                    <MenuItem x:Name="PasteButton" Header="Paste" Click="PasteButton_OnClick"/>
                 </MenuItem>
                 <MenuItem Header="View">
                     <MenuItem Header="TEMP"/>
