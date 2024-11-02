@@ -172,6 +172,21 @@ public partial class MainWindow : Window
         Console.WriteLine("Underline Button");
     }
     
+    
+    // Right side button functions
+    private void AlignLeftButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        EditingCommands.AlignLeft.Execute(null, Editor);
+    }
+    private void AlignCenterButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        EditingCommands.AlignCenter.Execute(null, Editor);
+    }
+    private void AlignRightButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        EditingCommands.AlignRight.Execute(null, Editor);
+    }
+    
     // Non-Event functions
     private void LoadFile()
     {
