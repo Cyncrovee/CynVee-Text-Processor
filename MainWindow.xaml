@@ -23,7 +23,7 @@
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="File">
                     <MenuItem x:Name="OpenFileButton" Header="Open File" Click="OpenFileButton_OnClick"/>
-                    <MenuItem Header="Open Folder"/>
+                    <MenuItem x:Name="OpenFolderButton" Header="Open Folder" Click="OpenFolderButton_OnClick"/>
                     <Separator/>
                     <MenuItem x:Name="SaveButton" Header="Save" Click="SaveButton_OnClick"/>
                     <MenuItem x:Name="SaveAsButton" Header="Save As..." Click="SaveAsButton_OnClick"/>
@@ -39,9 +39,9 @@
             </Menu>
         </DockPanel>
         
-        <ToggleButton x:Name="ItalicsButton" Content="I" Width="30" HorizontalAlignment="Left" Margin="5,5, 0,5" Grid.Column="0" Grid.Row="1"/>
-        <ToggleButton x:Name="BoldButton" Content="B" Width="30" HorizontalAlignment="Left" Margin="40,5, 0,5" Grid.Column="0" Grid.Row="1"/>
-        <ToggleButton x:Name="UnderlineButton" Content="U" Width="30" HorizontalAlignment="Left" Margin="75,5, 0,5" Grid.Column="0" Grid.Row="1"/>
+        <ToggleButton x:Name="ItalicsButton" Content="I" Click="ItalicsButton_OnClick" Width="30" HorizontalAlignment="Left" Margin="5,5, 0,5" Grid.Column="0" Grid.Row="1"/>
+        <ToggleButton x:Name="BoldButton" Click="BoldButton_OnClick" Content="B" Width="30" HorizontalAlignment="Left" Margin="40,5, 0,5" Grid.Column="0" Grid.Row="1"/>
+        <ToggleButton x:Name="UnderlineButton" Click="UnderlineButton_OnClick" Content="U" Width="30" HorizontalAlignment="Left" Margin="75,5, 0,5" Grid.Column="0" Grid.Row="1"/>
         <TextBlock Text="Current File: " Margin="5,0,0,0" Grid.Column="0" Grid.Row="2"/>
         
         <RichTextBox x:Name="Editor" HorizontalAlignment="Stretch" Grid.Column="0" Grid.Row="3">
@@ -51,7 +51,7 @@
                 </Style>
             </RichTextBox.Resources>
         </RichTextBox>
-        <ListBox x:Name="FileList" Width="300" Grid.Column="1" Grid.Row="3"/>
+        <ListBox x:Name="FileList" MouseDoubleClick="FileList_OnMouseDoubleClick" Width="Auto" MinWidth="300" Grid.Column="1" Grid.Row="3"/>
         
     </Grid>
 </Window>
