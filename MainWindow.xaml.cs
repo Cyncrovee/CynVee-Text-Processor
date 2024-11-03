@@ -19,6 +19,8 @@ public partial class MainWindow : Window
     private string _filePath = string.Empty;
     private string _folderPath = string.Empty;
 
+    private bool _isTextBoxFocused = false;
+    
     // Functions for menu
     // "File"
     private void OpenFileButton_OnClick(object sender, RoutedEventArgs e)
@@ -126,6 +128,41 @@ public partial class MainWindow : Window
     private void ClearAllButton_OnClick(object sender, RoutedEventArgs e)
     {
         Editor.Document.Blocks.Clear();
+    }
+    // "View"
+    private void TextBoxFocusButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        switch (_isTextBoxFocused)
+        {
+            case true:
+                ItalicsButton.Visibility = Visibility.Visible;
+                BoldButton.Visibility = Visibility.Visible;
+                UnderlineButton.Visibility = Visibility.Visible;
+                SubscriptButton.Visibility = Visibility.Visible;
+                SuperscriptButton.Visibility = Visibility.Visible;
+                AlignLeftButton.Visibility = Visibility.Visible;
+                AlignCenterButton.Visibility = Visibility.Visible;
+                AlignRightButton.Visibility = Visibility.Visible;
+                CurrentFileTextBlock.Visibility = Visibility.Visible;
+                CurrentFolderTextBlock.Visibility = Visibility.Visible;
+                FileList.Visibility = Visibility.Visible;
+                _isTextBoxFocused = false;
+                break;
+            case false:
+                ItalicsButton.Visibility = Visibility.Collapsed;
+                BoldButton.Visibility = Visibility.Collapsed;
+                UnderlineButton.Visibility = Visibility.Collapsed;
+                SubscriptButton.Visibility = Visibility.Collapsed;
+                SuperscriptButton.Visibility = Visibility.Collapsed;
+                AlignLeftButton.Visibility = Visibility.Collapsed;
+                AlignCenterButton.Visibility = Visibility.Collapsed;
+                AlignRightButton.Visibility = Visibility.Collapsed;
+                CurrentFileTextBlock.Visibility = Visibility.Collapsed;
+                CurrentFolderTextBlock.Visibility = Visibility.Collapsed;
+                FileList.Visibility = Visibility.Collapsed;
+                _isTextBoxFocused = true;
+                break;
+        }
     }
     
     

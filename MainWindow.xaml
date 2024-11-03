@@ -19,7 +19,7 @@
         </Grid.RowDefinitions>
         
         <DockPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
-            <Menu DockPanel.Dock="Top">
+            <Menu x:Name="TopMenu" DockPanel.Dock="Top">
                 <MenuItem Header="File">
                     <MenuItem x:Name="OpenFileButton" Header="Open File" Click="OpenFileButton_OnClick"/>
                     <MenuItem x:Name="OpenFolderButton" Header="Open Folder" Click="OpenFolderButton_OnClick"/>
@@ -41,7 +41,7 @@
                     <MenuItem x:Name="ClearAllButton" Header="Clear All" Click="ClearAllButton_OnClick"/>
                 </MenuItem>
                 <MenuItem Header="View">
-                    <MenuItem Header="TEMP"/>
+                    <MenuItem x:Name="TextBoxFocusButton" Header="Focus Text Box" IsCheckable="True" Click="TextBoxFocusButton_OnClick"/>
                 </MenuItem>
             </Menu>
         </DockPanel>
