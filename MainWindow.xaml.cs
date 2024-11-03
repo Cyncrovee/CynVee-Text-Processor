@@ -127,21 +127,6 @@ public partial class MainWindow : Window
     {
         Editor.Document.Blocks.Clear();
     }
-
-    
-    // Functions for Editor and FileList
-    private void FileList_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
-    {
-        if (File.Exists(_filePath) | FileList.SelectedItem != null)
-        {
-            _filePath = FileList.SelectedItem.ToString();
-            LoadFile();
-        }
-        else
-        {
-            Console.WriteLine("File not found");
-        }
-    }
     
     
     // Left side button functions
@@ -157,6 +142,14 @@ public partial class MainWindow : Window
     {
         EditingCommands.ToggleUnderline.Execute(null, Editor);
     }
+    private void SubscriptButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        EditingCommands.ToggleSubscript.Execute(null, Editor);
+    }
+    private void SuperscriptButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        EditingCommands.ToggleSuperscript.Execute(null, Editor);
+    }
     
     
     // Right side button functions
@@ -171,6 +164,43 @@ public partial class MainWindow : Window
     private void AlignRightButton_OnClick(object sender, RoutedEventArgs e)
     {
         EditingCommands.AlignRight.Execute(null, Editor);
+    }
+    
+    // Functions for Editor and FileList
+    private void Editor_OnSelectionChanged(object sender, RoutedEventArgs e)
+    {
+        var selection = Editor.Selection;
+        if(selection != null)
+        {
+            if (selection.GetPropertyValue(TextElement.FontWeightProperty).ToString() == FontWeights.Bold.ToString())
+            {
+                BoldButton.IsChecked = true;
+            }
+            else
+            {
+                BoldButton.IsChecked = false;
+            }
+            if (selection.GetPropertyValue(TextElement.FontStyleProperty).ToString() == FontStyles.Italic.ToString())
+            {
+                ItalicsButton.IsChecked = true;
+            }
+            else
+            {
+                ItalicsButton.IsChecked = false;
+            }
+        }
+    }
+    private void FileList_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+    {
+        if (File.Exists(_filePath) | FileList.SelectedItem != null)
+        {
+            _filePath = FileList.SelectedItem.ToString();
+            LoadFile();
+        }
+        else
+        {
+            Console.WriteLine("File not found");
+        }
     }
     
     // Non-Event functions
