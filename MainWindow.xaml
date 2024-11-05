@@ -51,6 +51,7 @@
         <Button x:Name="UnderlineButton" ToolTip="Toggle Underline on Selected Text" Click="UnderlineButton_OnClick" Content="U" Width="30" HorizontalAlignment="Left" Margin="75,5, 0,5" Grid.Column="0" Grid.Row="1"/>
         <Button x:Name="SubscriptButton" ToolTip="Toggle Subscript on Selected Text" Click="SubscriptButton_OnClick" Content="Sb" Height="20" Width="30" HorizontalAlignment="Left" Margin="110,0,0,0" Grid.Column="0" Grid.Row="1"/>
         <Button x:Name="SuperscriptButton" ToolTip="Toggle Subscript on Selected Text" Click="SuperscriptButton_OnClick" Content="Sp" Height="20" Width="30" HorizontalAlignment="Left" Margin="145,0,0,0" Grid.Column="0" Grid.Row="1"/>
+        <ComboBox x:Name="FontSizeBox" SelectionChanged="FontSizeBox_OnSelectionChanged" Height="20" Width="50" IsEditable="True" HorizontalAlignment="Left" Margin="180,0,0,0" Grid.Column="0" Grid.Row="1"/>
         
         <Button x:Name="AlignLeftButton" Content="AL" ToolTip="Toggle Aligning Selected Text Left" Click="AlignLeftButton_OnClick" Width="30" HorizontalAlignment="Right" Margin="0,0,66,0" Grid.Column="0" Grid.Row="1"/>
         <Button x:Name="AlignCenterButton" Content="AC" ToolTip="Toggle Aligning Selected Text to Center" Click="AlignCenterButton_OnClick" Width="30" HorizontalAlignment="Right" Margin="0,0,33,0" Grid.Column="0" Grid.Row="1"/>

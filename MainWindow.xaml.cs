@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using Microsoft.Win32;
@@ -14,6 +15,12 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        
+        int[] fontSize = Enumerable.Range(1, 256).ToArray();
+        foreach (int x in fontSize)
+        {
+            FontSizeBox.Items.Add(x);
+        }
     }
     
     private string _filePath = string.Empty;
@@ -186,6 +193,13 @@ public partial class MainWindow : Window
     private void SuperscriptButton_OnClick(object sender, RoutedEventArgs e)
     {
         EditingCommands.ToggleSuperscript.Execute(null, Editor);
+    }
+    
+    
+    // Font size box function
+    private void FontSizeBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        Editor.FontSize = FontSizeBox.SelectedIndex;
     }
     
     
