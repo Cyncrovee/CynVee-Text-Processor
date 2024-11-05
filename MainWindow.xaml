@@ -21,41 +21,41 @@
         <DockPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
             <Menu x:Name="TopMenu" DockPanel.Dock="Top">
                 <MenuItem Header="File">
-                    <MenuItem x:Name="OpenFileButton" Header="Open File" Click="OpenFileButton_OnClick"/>
-                    <MenuItem x:Name="OpenFolderButton" Header="Open Folder" Click="OpenFolderButton_OnClick"/>
+                    <MenuItem x:Name="OpenFileButton" Click="OpenFileButton_OnClick" Header="Open File"/>
+                    <MenuItem x:Name="OpenFolderButton" Click="OpenFolderButton_OnClick" Header="Open Folder"/>
                     <Separator/>
-                    <MenuItem x:Name="SaveButton" Header="Save" Click="SaveButton_OnClick"/>
-                    <MenuItem x:Name="SaveAsButton" Header="Save As..." Click="SaveAsButton_OnClick"/>
+                    <MenuItem x:Name="SaveButton" Click="SaveButton_OnClick" Header="Save"/>
+                    <MenuItem x:Name="SaveAsButton" Click="SaveAsButton_OnClick" Header="Save As..."/>
                     <Separator/>
-                    <MenuItem x:Name="ExitButton" Header="Exit" Click="ExitButton_OnClick"/>
+                    <MenuItem x:Name="ExitButton" Click="ExitButton_OnClick" Header="Exit"/>
                 </MenuItem>
                 <MenuItem Header="Edit">
-                    <MenuItem x:Name="UndoButton" Header="Undo" Click="UndoButton_OnClick" InputGestureText="Ctrl+Z"/>
-                    <MenuItem x:Name="RedoButton" Header="Redo" Click="RedoButton_OnClick" InputGestureText="Ctrl+Z"/>
+                    <MenuItem x:Name="UndoButton" Click="UndoButton_OnClick" Header="Undo" InputGestureText="Ctrl+Z"/>
+                    <MenuItem x:Name="RedoButton" Click="RedoButton_OnClick" Header="Redo" InputGestureText="Ctrl+Z"/>
                     <Separator/>
-                    <MenuItem x:Name="CutButton" Header="Cut" Click="CutButton_OnClick"/>
-                    <MenuItem x:Name="CopyButton" Header="Copy" Click="CopyButton_OnClick"/>
-                    <MenuItem x:Name="PasteButton" Header="Paste" Click="PasteButton_OnClick"/>
+                    <MenuItem x:Name="CutButton" Click="CutButton_OnClick" Header="Cut"/>
+                    <MenuItem x:Name="CopyButton" Click="CopyButton_OnClick" Header="Copy"/>
+                    <MenuItem x:Name="PasteButton" Click="PasteButton_OnClick" Header="Paste"/>
                     <Separator/>
-                    <MenuItem x:Name="SelectAllButton" Header="Select All" Click="SelectAllButton_OnClick"/>
-                    <MenuItem x:Name="ClearAllButton" Header="Clear All" Click="ClearAllButton_OnClick"/>
+                    <MenuItem x:Name="SelectAllButton" Click="SelectAllButton_OnClick" Header="Select All"/>
+                    <MenuItem x:Name="ClearAllButton" Click="ClearAllButton_OnClick" Header="Clear All"/>
                 </MenuItem>
                 <MenuItem Header="View">
-                    <MenuItem x:Name="TextBoxFocusButton" Header="Focus Text Box" IsCheckable="True" Click="TextBoxFocusButton_OnClick"/>
+                    <MenuItem x:Name="TextBoxFocusButton" Click="TextBoxFocusButton_OnClick" Header="Focus Text Box" IsCheckable="True"/>
                 </MenuItem>
             </Menu>
         </DockPanel>
         
-        <ToggleButton x:Name="ItalicsButton" Content="I" ToolTip="Toggle Italics on Selected Text" Click="ItalicsButton_OnClick" Width="30" HorizontalAlignment="Left" Margin="5,5, 0,5" Grid.Column="0" Grid.Row="1"/>
-        <ToggleButton x:Name="BoldButton" ToolTip="Toggle Bold on Selected Text" Click="BoldButton_OnClick" Content="B" Width="30" HorizontalAlignment="Left" Margin="40,5, 0,5" Grid.Column="0" Grid.Row="1"/>
-        <Button x:Name="UnderlineButton" ToolTip="Toggle Underline on Selected Text" Click="UnderlineButton_OnClick" Content="U" Width="30" HorizontalAlignment="Left" Margin="75,5, 0,5" Grid.Column="0" Grid.Row="1"/>
-        <Button x:Name="SubscriptButton" ToolTip="Toggle Subscript on Selected Text" Click="SubscriptButton_OnClick" Content="Sb" Height="20" Width="30" HorizontalAlignment="Left" Margin="110,0,0,0" Grid.Column="0" Grid.Row="1"/>
-        <Button x:Name="SuperscriptButton" ToolTip="Toggle Subscript on Selected Text" Click="SuperscriptButton_OnClick" Content="Sp" Height="20" Width="30" HorizontalAlignment="Left" Margin="145,0,0,0" Grid.Column="0" Grid.Row="1"/>
-        <ComboBox x:Name="FontSizeBox" SelectionChanged="FontSizeBox_OnSelectionChanged" Height="20" Width="50" IsEditable="True" HorizontalAlignment="Left" Margin="180,0,0,0" Grid.Column="0" Grid.Row="1"/>
+        <ToggleButton x:Name="ItalicsButton" Click="ItalicsButton_OnClick" Content="I" ToolTip="Toggle Italics on Selected Text" HorizontalAlignment="Left" Width="30" Margin="5,5, 0,5" Grid.Column="0" Grid.Row="1"/>
+        <ToggleButton x:Name="BoldButton" Click="BoldButton_OnClick" Content="B" ToolTip="Toggle Bold on Selected Text" HorizontalAlignment="Left" Width="30" Margin="40,5, 0,5" Grid.Column="0" Grid.Row="1"/>
+        <Button x:Name="UnderlineButton" Click="UnderlineButton_OnClick" Content="U" ToolTip="Toggle Underline on Selected Text" HorizontalAlignment="Left" Width="30" Margin="75,5, 0,5" Grid.Column="0" Grid.Row="1"/>
+        <Button x:Name="SubscriptButton" Click="SubscriptButton_OnClick" Content="Sb" ToolTip="Toggle Subscript on Selected Text" HorizontalAlignment="Left" Height="20" Width="30" Margin="110,0,0,0" Grid.Column="0" Grid.Row="1"/>
+        <Button x:Name="SuperscriptButton" Click="SuperscriptButton_OnClick" Content="Sp" ToolTip="Toggle Subscript on Selected Text" HorizontalAlignment="Left" Height="20" Width="30" Margin="145,0,0,0" Grid.Column="0" Grid.Row="1"/>
+        <ComboBox x:Name="FontSizeBox" SelectionChanged="FontSizeBox_OnSelectionChanged" IsEditable="True" HorizontalAlignment="Left" Height="20" Width="50" Margin="180,0,0,0" Grid.Column="0" Grid.Row="1"/>
         
-        <Button x:Name="AlignLeftButton" Content="AL" ToolTip="Toggle Aligning Selected Text Left" Click="AlignLeftButton_OnClick" Width="30" HorizontalAlignment="Right" Margin="0,0,66,0" Grid.Column="0" Grid.Row="1"/>
-        <Button x:Name="AlignCenterButton" Content="AC" ToolTip="Toggle Aligning Selected Text to Center" Click="AlignCenterButton_OnClick" Width="30" HorizontalAlignment="Right" Margin="0,0,33,0" Grid.Column="0" Grid.Row="1"/>
-        <Button x:Name="AlignRightButton" Content="AR" ToolTip="Toggle Aligning Selected Text Right" Click="AlignRightButton_OnClick" Width="30" HorizontalAlignment="Right" Margin="0,0,0,0" Grid.Column="0" Grid.Row="1"/>
+        <Button x:Name="AlignLeftButton" Click="AlignLeftButton_OnClick" Content="AL" ToolTip="Toggle Aligning Selected Text Left" HorizontalAlignment="Right" Width="30" Margin="0,0,66,0" Grid.Column="0" Grid.Row="1"/>
+        <Button x:Name="AlignCenterButton" Click="AlignCenterButton_OnClick" Content="AC" ToolTip="Toggle Aligning Selected Text to Center" HorizontalAlignment="Right" Width="30" Margin="0,0,33,0" Grid.Column="0" Grid.Row="1"/>
+        <Button x:Name="AlignRightButton" Click="AlignRightButton_OnClick" Content="AR" ToolTip="Toggle Aligning Selected Text Right" HorizontalAlignment="Right" Width="30" Margin="0,0,0,0" Grid.Column="0" Grid.Row="1"/>
         
         <TextBlock x:Name="CurrentFileTextBlock" Text="Current File: " Margin="5,0,0,0" Grid.Column="0" Grid.Row="2"/>
         <TextBlock x:Name="CurrentFolderTextBlock" Text="Current Folder: " Margin="5,15,0,0" Grid.Column="0" Grid.Row="2"/>
