@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CynVee_Text_Processor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="CynVee-Text-Processor" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -51,7 +51,9 @@
         <Button x:Name="UnderlineButton" Click="UnderlineButton_OnClick" Content="U" ToolTip="Toggle Underline on Selected Text" HorizontalAlignment="Left" Width="30" Margin="75,5, 0,5" Grid.Column="0" Grid.Row="1"/>
         <Button x:Name="SubscriptButton" Click="SubscriptButton_OnClick" Content="Sb" ToolTip="Toggle Subscript on Selected Text" HorizontalAlignment="Left" Height="20" Width="30" Margin="110,0,0,0" Grid.Column="0" Grid.Row="1"/>
         <Button x:Name="SuperscriptButton" Click="SuperscriptButton_OnClick" Content="Sp" ToolTip="Toggle Subscript on Selected Text" HorizontalAlignment="Left" Height="20" Width="30" Margin="145,0,0,0" Grid.Column="0" Grid.Row="1"/>
-        <ComboBox x:Name="FontSizeBox" SelectionChanged="FontSizeBox_OnSelectionChanged" IsEditable="True" HorizontalAlignment="Left" Height="20" Width="50" Margin="180,0,0,0" Grid.Column="0" Grid.Row="1"/>
+        
+        <ComboBox x:Name="FontSizeBox" ToolTip="Change Font Size" SelectionChanged="FontSizeBox_OnSelectionChanged" IsEditable="True" HorizontalAlignment="Left" Height="20" Width="50" Margin="285,0,0,0" Grid.Column="0" Grid.Row="1"/>
+        <ComboBox x:Name="FontFamilyBox" SelectionChanged="FontFamilyBox_OnSelectionChanged" ItemsSource="{Binding Source={x:Static Fonts.SystemFontFamilies}}" IsEditable="False" HorizontalAlignment="Left" Height="20" Width="100" Margin="180,0,0,0" Grid.Column="0" Grid.Row="1"/>
         
         <Button x:Name="AlignLeftButton" Click="AlignLeftButton_OnClick" Content="AL" ToolTip="Toggle Aligning Selected Text Left" HorizontalAlignment="Right" Width="30" Margin="0,0,66,0" Grid.Column="0" Grid.Row="1"/>
         <Button x:Name="AlignCenterButton" Click="AlignCenterButton_OnClick" Content="AC" ToolTip="Toggle Aligning Selected Text to Center" HorizontalAlignment="Right" Width="30" Margin="0,0,33,0" Grid.Column="0" Grid.Row="1"/>

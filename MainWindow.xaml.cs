@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
 using Microsoft.Win32;
 
 namespace CynVee_Text_Processor;
@@ -91,8 +92,8 @@ public partial class MainWindow : Window
         saveFileDialog.Filter = "Rich Text Format (*.rtf)|*.rtf|All files (*.*)|*.*";
         if(saveFileDialog.ShowDialog() == true)
         {
-            FileStream fileStream = new FileStream(saveFileDialog.FileName, FileMode.Create);
-            TextRange range = new TextRange(Editor.Document.ContentStart, Editor.Document.ContentEnd);
+            var fileStream = new FileStream(saveFileDialog.FileName, FileMode.Create);
+            var range = new TextRange(Editor.Document.ContentStart, Editor.Document.ContentEnd);
             range.Save(fileStream, DataFormats.Rtf);
             _filePath = saveFileDialog.FileName;
             fileStream.Close();
@@ -196,10 +197,16 @@ public partial class MainWindow : Window
     }
     
     
-    // Font size box function
+    // Font family and font size box functions
     private void FontSizeBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        Editor.FontSize = FontSizeBox.SelectedIndex;
+        Editor.FontSize = FontSizeBox.SelectedIndex + 1;
+    }
+    private void FontFamilyBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (FontFamilyBox.SelectedItem == null) return;
+        var selectedFont = new FontFamily(FontFamilyBox.SelectedItem.ToString());
+        Editor.FontFamily = selectedFont;
     }
     
     
