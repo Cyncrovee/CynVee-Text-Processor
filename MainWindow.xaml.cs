@@ -148,6 +148,8 @@ public partial class MainWindow : Window
                 UnderlineButton.Visibility = Visibility.Visible;
                 SubscriptButton.Visibility = Visibility.Visible;
                 SuperscriptButton.Visibility = Visibility.Visible;
+                FontFamilyBox.Visibility = Visibility.Visible;
+                FontSizeBox.Visibility = Visibility.Visible;
                 AlignLeftButton.Visibility = Visibility.Visible;
                 AlignCenterButton.Visibility = Visibility.Visible;
                 AlignRightButton.Visibility = Visibility.Visible;
@@ -162,6 +164,8 @@ public partial class MainWindow : Window
                 UnderlineButton.Visibility = Visibility.Collapsed;
                 SubscriptButton.Visibility = Visibility.Collapsed;
                 SuperscriptButton.Visibility = Visibility.Collapsed;
+                FontFamilyBox.Visibility = Visibility.Collapsed;
+                FontSizeBox.Visibility = Visibility.Collapsed;
                 AlignLeftButton.Visibility = Visibility.Collapsed;
                 AlignCenterButton.Visibility = Visibility.Collapsed;
                 AlignRightButton.Visibility = Visibility.Collapsed;
